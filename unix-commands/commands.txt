@@ -1,0 +1,30 @@
+git remote add origin <url> – Links the local repository to a remote GitHub repository named origin.
+
+git init – Initializes a new Git repository in the current folder.
+
+git checkout -b "unix-commands-git-github" – Creates and switches to a new branch named nodejs-programming.
+
+git add . – Stages all modified and new files for commit.
+
+git branch – Lists all local branches.
+
+git clone <url> – Downloads a remote GitHub repository to the local system.
+
+ls – Lists files and folders in the current directory.
+
+git branch -a – Lists both local and remote branches.
+git status
+
+git switch unix-commands-git-github – Switches to the specified branch.
+
+git commit -m "Initial Commit" – Saves staged changes with a commit message.
+
+git push -u origin unix-commands-git-github – Pushes branch to GitHub and sets upstream tracking.
+
+mkdir unix-commands – Creates a new directory named unix-commands.
+
+touch file1.txt backup.txt – Creates empty files named file1.txt and backup.txt.
+
+cp file1.txt backup.txt  - copy the file1 content into backup file
+
+mv file1.txt backup.txt - rename the file name
