@@ -8,6 +8,7 @@ const student=[
     {id:3,name:"akh1kyro",branch:"diploma"}
 ]
 
+
 app.get("/",(req,res)=>{
     res.send("welcome to home page")
 })
@@ -23,6 +24,7 @@ app.get("/student",(req,res)=>{
 app.get("/student/:id",(req,res)=>{
     res.send(" ")
 })
+
 
 app.listen(port,()=>{
     console.log(`server is running on http://localhost:${port}`)
