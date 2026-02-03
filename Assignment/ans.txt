@@ -1,0 +1,71 @@
+
+
+1. Difference between synchronous and asynchronous file operations
+
+Synchronous file operations block the execution of code until the file operation is completed.
+Asynchronous file operations do not block execution and run in the background.
+
+Example:
+fs.readFileSync() -> blocking
+fs.readFile() -> non-blocking
+
+
+2. When should you use file streams instead of reading the entire file?
+
+File streams should be used when:
+- The file size is very large
+- Memory efficiency is required
+- Data needs to be processed chunk by chunk
+
+Streams read data in small chunks instead of loading the whole file into memory.
+
+
+3. Purpose of the ‘utf8’ encoding parameter
+
+The 'utf8' encoding parameter is used to convert file data into readable text.
+Without specifying encoding, Node.js returns data as a Buffer.
+
+
+4. Common error codes in file system operations
+
+ENOENT  -> File or directory not found
+EACCES  -> Permission denied
+EPERM   -> Operation not permitted
+EISDIR  -> Expected file but got directory
+ENOTDIR -> Expected directory but got file
+EBUSY   -> File is being used by another process
+
+
+5. How to safely delete a directory with all its contents
+
+Use recursive deletion to remove the directory and all files inside it.
+
+Example:
+fs.rm("folderName", { recursive: true, force: true })
+
+
+6. Concept of piping in streams
+
+Piping is used to send data from one stream to another.
+It improves performance and reduces memory usage.
+
+Example:
+readStream.pipe(writeStream)
+
+
+7. Importance of handling errors in file operations
+
+Handling errors is important to:
+- Prevent application crashes
+- Avoid data loss
+- Handle missing files or permission issues safely
+
+
+8. Difference between writeFile and appendFile methods
+
+writeFile  -> Overwrites existing file content
+appendFile -> Adds new data at the end of the file
+
+Example:
+fs.writeFile() replaces data
+fs.appendFile() adds data
