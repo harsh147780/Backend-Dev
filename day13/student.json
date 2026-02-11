@@ -1,0 +1,15 @@
+[
+    {
+        "id": null,
+        "first_name": "Aloysius",
+        "last_name": "Gealle",
+        "email": "agealle2@cpanel.net",
+        "Job_title": "Associate Professor",
+        "ip_address": "84.199.252.235"
+    },
+    {
+        "id": 3,
+        "name": "Tanuj",
+        "branch": "CSE"
+    }
+]
