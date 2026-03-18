@@ -1,0 +1,136 @@
+Create a database students collection: students with fields: name, age, course, city, and feesPaid.
+1. Create:
+Insert at least 5 student records
+Use different courses and mix of feesPaid (true/false)
+Ensure at least 2 students have the same name
+
+ANS ==>
+use students
+switched to db students
+db.createCollection("students")
+db.students.insertMany([
+  {
+    "Name" : "Tanuj Sharma",
+    "Age":21,
+    "Course" : "B.Tech",
+    "City" :"Agra",
+    "feesPaid":true
+  },
+  {
+    "Name" : "Abhishek Sharma",
+    "Age":20,
+    "Course" : "B.Tech",
+    "City" :"Agra",
+    "feesPaid":false
+  },
+  {
+    "Name" : "Gopesh Sharma",
+    "Age":21,
+    "Course" : "BCA",
+    "City" :"Mathura",
+    "feesPaid":true
+  },
+  {
+    "Name" : "Satyam Kumar",
+    "Age":21,
+    "Course" : "BCA",
+    "City" :"Patna",
+    "feesPaid":true
+  },
+  {
+    "Name" : "Pranjal Pachodi",
+    "Age":21,
+    "Course" : "BA",
+    "City" :"Vrindavan",
+    "feesPaid":false
+  }
+])
+
+2. Read:
+Retrieve all students
+Find students with course = "BCA"
+Find students with age > 20
+Display only name and course fields
+
+Ans ===>
+
+db.students.find({Course :"BCA"})
+{
+  _id: ObjectId('69ba73ad2719ed984b2dc647'),
+  Name: 'Gopesh Sharma',
+  Age: 21,
+  Course: 'BCA',
+  City: 'Mathura',
+  feesPaid: true
+}
+db.students.find({ Age: { $gt: 19 } })
+{
+  _id: ObjectId('69ba73ad2719ed984b2dc645'),
+  Name: 'Tanuj Sharma',
+  Age: 21,
+  Course: 'B.Tech',
+  City: 'Agra',
+  feesPaid: true
+}
+{
+  _id: ObjectId('69ba73ad2719ed984b2dc646'),
+  Name: 'Abhishek Sharma',
+  Age: 20,
+  Course: 'B.Tech',
+  City: 'Agra',
+  feesPaid: false
+}
+db.students.find(
+  {},
+  { Name: 1, Course: 1, _id: 0 }
+)
+{
+  Name: 'Pranjal Pachodi',
+  Course: 'BA'
+}{
+  Name: 'Satyam Kumar',
+  Course: 'BCA'
+}{
+  Name: 'Gopesh Sharma',
+  Course: 'BCA'
+}{
+  Name: 'Gopesh Sharma',
+  Course: 'BCA'
+}
+
+3. Update:
+
+Update city of one student
+
+Change course from BCA to MCA
+
+Set feesPaid = true for students with age > 22
+
+Ans ==> 
+
+
+db.students.updateOne(
+  { Name:"Pranjal Pachodi"},
+  {$set :{City:"Mathura"}}
+)
+
+db.students.updateMany(
+  { Course: "BCA" },
+  { $set: { Course: "MCA" } }
+)
+db.students.updateMany(
+  { Age:{$gt:21}},
+  { $set: { feesPaid: true } }
+)
+
+
+4. Delete:
+
+Delete students with feesPaid = false
+
+Delete students with age < 20
+
+ANS ==>>>
+
+db.students.deleteMany({ feesPaid: false })
+db.students.deleteMany({ Age:{$lt: 20} })
